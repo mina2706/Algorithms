@@ -42,8 +42,11 @@ Cloner le dépôt :
 
 Exécuter un fichier Python :
 
-    python fichier.py
+    python3 fichier.py
 
+Exécuter un algorithme de machine tracé: 
+
+    xvfb-run -s "-screen 0 1024x768x24" python3 fichier.py 
 ---
 
 ## 📄 Template conseillé pour chaque fichier d’exercice
