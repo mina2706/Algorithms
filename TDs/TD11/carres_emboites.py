@@ -17,22 +17,16 @@ def lesCarres(n, lg , d, t):
         lesCarres(n-1, lg-d, d , t) 
 
 def main ():
-    screen = turtle.Screen()
-    screen.setup(width=800, height=800)
-    t = turtle.Turtle()
-    t.speed(0)
-    t.hideturtle()
-
+    # configurer la machine à tracer
+    screen, t = machine_config()
+    
     n = int (input ("Entrez le nombre de carrés emboités : "))
     lg = int (input ("Entrez le coté de carré de base : "))
     d = int (input("Entrez la différence entre les carrés emboités : "))
     lesCarres(n, lg ,d , t)
 
     # enregistrer le canevas en PostScript
-    canvas = screen.getcanvas()
-    out = "/workspaces/Algorithms/TDs/rendus_machine_tarce/carres_emboites.ps"
-    canvas.postscript(file=out)
-    print("Dessiné :", out)
+    save_drawing(screen, "sierpinski.ps")
 
     screen.bye()
 

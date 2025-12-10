@@ -72,22 +72,16 @@ def hArbre(n, lg, t):
         t.backward(lg/2)
 
 def main ():
-    screen = turtle.Screen()
-    screen.setup(width=800, height=800)
-    t = turtle.Turtle()
-    t.speed(0)
-    t.hideturtle()
+    # configurer la machine à tracer
+    screen, t = machine_config()
 
     n = int (input ("Entrez l'ordre de l'arbre , n  : "))
     lg = int (input ("Entrez la longueur des branches de l'arbre de base , lg : "))
     hArbre(n, lg , t)
 
     # enregistrer le canevas en PostScript
-    canvas = screen.getcanvas()
-    out = "/workspaces/Algorithms/TDs/rendus_machine_tarce/H_arbre.ps"
-    canvas.postscript(file=out)
-    print("Dessiné :", out)
-
+    save_drawing(screen, "H_arbre.ps")
+   
     screen.bye()
 
 if __name__ == "__main__":
