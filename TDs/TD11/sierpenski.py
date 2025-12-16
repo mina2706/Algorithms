@@ -13,37 +13,23 @@
 
 """
 import turtle
-from utils import traceTriangleEquilat , machine_config, save_drawing
-def sierpinski(n, lg, t):
-    if n == 1:
-        traceTriangleEquilat(lg , t)
-    else:
-        sierpinski(n - 1, lg / 2, t)
-        t.forward(lg / 2)
-        sierpinski(n - 1, lg / 2, t)
-        t.backward(lg / 2)
-        t.left(60)
-        t.forward(lg / 2)
-        t.right(60)
-        sierpinski(n - 1, lg / 2, t)
-        t.left(60)
-        t.backward(lg / 2)
-        t.right(60)
-        sierpinski(n - 1, lg / 2, t)      
+from interface_machine_trace.machine_trace import creer_fenetre_algo
+from .utils import traceTriangleEquilat
+def sierpinski(m, n, lg):
+    traceTriangleEquilat(lg , m)
+    if n > 1:
+        sierpinski(m, n - 1, lg / 2)
+        m.forward(lg / 2)
+        sierpinski(m, n - 1, lg / 2)
+        m.left(120)
+        m.forward(lg / 2)
+        m.right(120)
+        sierpinski(m, n - 1, lg / 2)
+        m.left(60)
+        m.backward(lg / 2)
+        m.right(60)      
 
-def main():
-    # configurer la machine à tracer
-    screen, t = machine_config()
 
-    n = int(input("Entrez l'ordre du triangle de Sierpinski : "))
-    lg = int(input("Entrez la longueur du côté du triangle principal : "))
-
-    sierpinski(n, lg, t)
-
-    # enregistrer le canevas en PostScript
-    save_drawing(screen, "sierpinski.ps")
-    
-    screen.bye()
 
 if __name__ == "__main__":
-    main()
+    creer_fenetre_algo(sierpinski, params={'n': '','lg':''})

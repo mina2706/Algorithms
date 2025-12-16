@@ -10,25 +10,13 @@
 """
 import turtle 
 from utils import traceCarre2
+from machine_trace import creer_fenetre_algo
 
-def lesCarres(n, lg , d, t):
-    traceCarre2(lg,t)
+def lesCarres(m, n, lg , d):
+    traceCarre2(lg,m)
     if lg>d and n>0 : # si n=0 y a que le carré de base , donc pas de carrés emboités
-        lesCarres(n-1, lg-d, d , t) 
+        lesCarres(m, n-1, lg-d, d) 
 
-def main ():
-    # configurer la machine à tracer
-    screen, t = machine_config()
-    
-    n = int (input ("Entrez le nombre de carrés emboités : "))
-    lg = int (input ("Entrez le coté de carré de base : "))
-    d = int (input("Entrez la différence entre les carrés emboités : "))
-    lesCarres(n, lg ,d , t)
-
-    # enregistrer le canevas en PostScript
-    save_drawing(screen, "sierpinski.ps")
-
-    screen.bye()
 
 if __name__ == "__main__":
-    main()
+    creer_fenetre_algo(lesCarres, params={'n':4,'lg':300,'d':20})

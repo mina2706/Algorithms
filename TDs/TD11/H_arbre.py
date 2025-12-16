@@ -9,7 +9,8 @@
     Date   : 08-12-2025
 """
 import turtle
-def hArbre(n, lg, t):
+from interface_machine_trace.machine_trace import creer_fenetre_algo
+def hArbre(t, n, lg):
     # dessiner le H de base et revenir au centre, cap = droite
     t.backward(lg/2)      # milieu gauche
     t.left(90)
@@ -31,7 +32,7 @@ def hArbre(n, lg, t):
         t.left(90)
         t.forward(lg/2)
         t.right(90)           # cap = droite au sommet haut-gauche
-        hArbre(n-1, lg/2, t)
+        hArbre(t, n-1, lg/2)
         # annuler (inverse des 4 mouvements ci‑dessus)
         t.left(90)
         t.backward(lg/2)
@@ -43,7 +44,7 @@ def hArbre(n, lg, t):
         t.left(90)
         t.backward(lg/2)
         t.right(90)           # cap = droite au sommet bas-gauche
-        hArbre(n-1, lg/2, t)
+        hArbre(t, n-1, lg/2)
         t.left(90)
         t.forward(lg/2)
         t.right(90)
@@ -54,7 +55,7 @@ def hArbre(n, lg, t):
         t.left(90)
         t.forward(lg/2)
         t.right(90)           # cap = droite au sommet haut-droit
-        hArbre(n-1, lg/2, t)
+        hArbre(t, n-1, lg/2)
         t.left(90)
         t.backward(lg/2)
         t.right(90)
@@ -65,24 +66,11 @@ def hArbre(n, lg, t):
         t.right(90)
         t.forward(lg/2)
         t.left(90)            # cap = droite au sommet bas-droit
-        hArbre(n-1, lg/2, t)
+        hArbre(t, n-1, lg/2)
         t.right(90)
         t.backward(lg/2)
         t.left(90)
         t.backward(lg/2)
 
-def main ():
-    # configurer la machine à tracer
-    screen, t = machine_config()
-
-    n = int (input ("Entrez l'ordre de l'arbre , n  : "))
-    lg = int (input ("Entrez la longueur des branches de l'arbre de base , lg : "))
-    hArbre(n, lg , t)
-
-    # enregistrer le canevas en PostScript
-    save_drawing(screen, "H_arbre.ps")
-   
-    screen.bye()
-
 if __name__ == "__main__":
-    main()
+    creer_fenetre_algo(hArbre, params={'n': '','lg':''})
