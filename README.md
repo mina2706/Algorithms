@@ -24,9 +24,20 @@ Ce dépôt rassemblera progressivement :
 - 📚 Sujets types examens  
 - 🧩 Défis algorithmiques  
 - 🧵 Exercices sur chaînes, listes, fonctions, etc.
+  
+## 📁 Arborescence du dépôt: 
+Algorithms/
+├── .gitignore
+├── README.md
+├── TDs/
+│   ├── TD7/
+│   └── TD11/
+└── interface_machine_trace/
 
-(L’organisation du dépôt sera ajoutée plus tard.)
-
+- TDs/ : exercices de travaux dirigés en algorithmique.
+- TD7/ et TD11/ : séries d’exercices classées par TD.
+- interface_machine_trace/ : mini-projet lié à la visualisation et au tracé.
+- README.md : présentation générale du dépôt.
 ---
 
 ## 🐍 Technologie
@@ -106,8 +117,25 @@ This repository will gradually include:
 - 🧩 Algorithmic challenges  
 - 🧵 String, list, function, and recursion exercises  
 
-(The repository structure will be added later.)
+## 📁 Repository Structure
+Algorithms/
+├── .gitignore
+├── README.md
+├── TDs/
+│   ├── TD7/
+│   └── TD11/
+└── interface_machine_trace/
 
+TDs/: algorithmics tutorial exercises.
+
+TD7/ and TD11/: exercise sets organized by tutorial session.
+
+interface_machine_trace/: small project related to visualization and drawing.
+
+README.md: general presentation of the repository.
+
+
+.gitignore : fichiers et dossiers exclus du versionnement Git.
 ---
 
 ## 🐍 Technology
